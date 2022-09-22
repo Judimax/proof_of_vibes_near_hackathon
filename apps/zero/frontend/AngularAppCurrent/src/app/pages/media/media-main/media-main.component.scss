@@ -1,0 +1,59 @@
+@import "src/assets/styles/global.scss";
+
+
+:host {
+
+
+  &.MediaMainView{
+    .MediaMain{
+      &Main{
+        &Pod{
+          display: flex;
+          align-items: center;     
+          flex-direction: column;     
+        }
+        &Title{
+          &0{
+            text-align: center;
+          }
+        }        
+      }
+      &Pod{
+
+        &0{
+          flex: 0 0 90%;
+          max-width: 2400px;
+          display: flex;
+          flex-direction: column;
+          padding:$spacing3 $spacing10 0  $spacing10;
+          &Item{
+            &0{
+              display: flex;
+              background-color: transparentize($color: $bs-light, $amount: .5);  
+              margin: 0 0  $spacing5 0;
+              border-radius: 1vw;
+            }
+            &1{
+              padding:$spacing5;
+              flex: 0 0 50%;
+            }
+            &2{
+              border-right: calc(1/16* 1rem) solid $bs-primary;
+              padding: 0 $spacing2 0 0;
+            }
+
+          }
+
+          &Img{
+            &0{
+              width: 50%;
+              max-width: calc(400/16 * 1rem);
+
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

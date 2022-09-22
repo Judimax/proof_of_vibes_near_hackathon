@@ -1,0 +1,74 @@
+
+@import "src/assets/styles/global.scss";
+
+:host {
+
+
+  &.AppView{
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    overflow: hidden;
+    .App{
+      &Main{
+        &Pod{
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          background-image: url("./../assets/media/shared/background.jpg");
+        }
+      }
+
+      &Pod{
+          &0{
+            // flex: 0 1 20%;
+          }
+          &1{
+            flex:1 1 80%;
+            overflow: hidden auto;
+            &Item {
+              &0 {
+                width:100%;
+                height: 100%;
+                background: transparent;
+                overflow: hidden auto;
+              }
+            }
+          }
+
+          &2{
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top:0;
+            z-index:2;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+          }    
+
+          &3{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            
+
+
+            &Item {
+              &0 {
+                flex: 0 0 70%;
+
+              }
+
+
+            }
+          }
+          
+      }
+    }
+  }
+
+  
+}

@@ -1,0 +1,29 @@
+@import "src/assets/styles/global.scss";
+
+
+
+
+
+  .MobileNavItemPodView{
+    .MobileNavItemPod{
+      &Main{
+        &Pod{
+          min-height: calc(50/16 * 1rem);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding:1rem;
+          border-bottom: calc(1/16 * 1rem) solid red;
+        }
+        &Img {
+          &0 {
+            width: 90%;
+          }
+        }
+      }
+      &Pod{
+        &0{}
+      }
+    }
+  }
+

@@ -1,0 +1,16 @@
+
+:host {
+  &.View {
+  }
+  .Main {
+    &Pod{
+      border:1px solid var(--black);
+      list-style: none;
+    }
+  }
+  .Pod{
+    &0{
+      visibility: hidden;
+    }
+  }
+}

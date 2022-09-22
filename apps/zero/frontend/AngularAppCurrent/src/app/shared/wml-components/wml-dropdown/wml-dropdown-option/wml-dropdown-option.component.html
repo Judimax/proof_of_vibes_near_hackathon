@@ -1,0 +1,8 @@
+<ng-container *ngIf="meta.displayType === 'dropdownFirst'" >
+  <wml-dropdown [meta]="meta.dropdownChild"></wml-dropdown>
+  <ng-template #customOption></ng-template>
+</ng-container>
+<ng-container *ngIf="meta.displayType === 'optionFirst'" >
+  <ng-template #customOption></ng-template>
+  <wml-dropdown [meta]="meta.dropdownChild"></wml-dropdown>
+</ng-container>

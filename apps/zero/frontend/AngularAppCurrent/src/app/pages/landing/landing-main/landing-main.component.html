@@ -1,0 +1,27 @@
+<div [class]="classPrefix('MainPod')">
+
+
+  <section [class]="classPrefix('Pod0')">
+
+
+    <div [class]="classPrefix('Pod0Item1')">
+      <wml-card [class]="classPrefix('Pod0Item2')">
+        <h2>Step 1 (Optional)</h2>
+        <h2>
+          <a [href]="createNearWalletLink">
+            Create a Near Wallet Here
+          </a>
+        </h2>
+        <qr-code [value]="createNearWalletLink" size="300" errorCorrectionLevel="M"></qr-code>
+      </wml-card>
+    </div>
+    <div [class]="classPrefix('Pod0Item0')">
+      <wml-card [class]="classPrefix('Pod0Item2')">
+        <h2>Step 2</h2>
+        <h2>Connect Your Near Wallet</h2>
+        <button (click)="connectWalletBtn.click($event)" [class]="classPrefix('Pod0Btn0')">{{ connectWalletBtn.value | translate}}</button>
+      </wml-card>
+    </div>
+  </section>
+
+</div>

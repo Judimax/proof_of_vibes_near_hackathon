@@ -1,0 +1,8 @@
+<main class="MainPod">
+  <section class="Pod0" *ngFor="let field of displayFields">
+    <wml-card *ngIf="field.self.type === 'wml-card'">
+      <wml-fields [field]="field"></wml-fields>
+    </wml-card>
+    <wml-fields [field]="field" *ngIf="field.self.type === 'standalone'"></wml-fields>
+  </section>
+</main>

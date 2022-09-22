@@ -1,0 +1,29 @@
+:host {
+  &.View {
+  }
+  .Main {
+    &Pod{
+      position: relative;
+
+    }
+  }
+  .Pod{
+    &0{
+      position: absolute;
+      width: 90%;
+      z-index: 1;
+      &Item{
+        &0{
+          display: block;  
+        }
+        &1{
+          display: none;  
+        }
+        &2{
+          width: 100%;
+        }
+      }
+    }
+  }
+
+}

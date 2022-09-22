@@ -1,0 +1,67 @@
+@import "src/assets/styles/global.scss";
+
+:host {
+
+
+
+  
+  &.LandingMainView{
+    .LandingMain{
+      &Main{
+        &Pod{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+        } 
+      }
+
+      &Pod{
+        &0{
+          width :100%;
+          min-height:calc(350/16 * 1rem);
+          max-width: calc(2400/16 * 1rem);
+          display: flex;
+          &Item {
+
+            @for $i from  0 through 1  {
+              &#{$i} {
+                flex: 0 0 50%;
+                display: flex;
+                flex-direction: column;
+                padding:var(--spacing5);  
+              }
+            }
+            &0{
+            }
+            &1{
+
+          
+            }
+            &2{
+              background-color:$bs-light;
+              color:$bs-dark;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              *{
+                margin:var(--spacing5) 0;
+              }                   
+            }
+
+          }
+          &Btn{
+            &0{
+              @include GlobalButton0;
+              font-size: $fontSize2;
+            }
+          }
+
+        }
+      }
+
+
+    }
+  }
+
+}

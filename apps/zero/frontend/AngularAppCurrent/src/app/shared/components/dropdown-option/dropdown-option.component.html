@@ -1,0 +1,9 @@
+<main class="MainPod" [ngStyle]="meta.style">
+  <div class="Pod0">
+    <h2>{{meta.title}}</h2>
+    <p>{{meta.subTitle}}</p>
+  </div>
+  <div *ngIf="meta.selectChevronIsPresent" class="Pod1">
+    <div class="Pod1Item0"></div>
+  </div>
+</main>

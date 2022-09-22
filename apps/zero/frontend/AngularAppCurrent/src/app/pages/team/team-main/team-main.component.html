@@ -1,0 +1,24 @@
+<div [class]="classPrefix('MainPod')">
+  <section [class]="classPrefix('Pod0')">
+    <div  [class]="classPrefix('Pod0Item0')">
+      <h1 [class]="classPrefix('Pod0Title0')">{{ "teamMain.title" | translate }}</h1>
+      <p  [class]="classPrefix('Pod0Text0')" >{{ "teamMain.summary" | translate }}</p>
+    </div>
+    <div [class]="classPrefix('Pod0Item1')">
+      <div [class]="classPrefix('Pod0Item2')" *ngFor="let member of teamMembers">
+        
+          <img [class]="classPrefix('Pod0Img0')" [src]="member.src"  [alt]="member.alt"/>
+          <div [class]="classPrefix('Pod0Item3')">
+            <span [class]="classPrefix('Pod0Title1')" >{{member.title | translate}}</span>
+            <p  [class]="classPrefix('Pod0Text1')">    {{member.desc | translate}}</p>
+            <a [href]="member.linkedInHref">
+              <img  [class]="classPrefix('Pod0Img1')" src="assets/media/team_main/6.svg" [alt]="'teamMain.linkedInIconAlt' | translate"/>
+            </a>
+          </div>
+        
+        
+        
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,18 @@
+:host {
+  &View {
+  }
+  .Main {
+    &Pod{
+
+    }
+  }
+  .Pod{
+    &2{
+      &Label{
+        &0{
+          color:var(--red);
+        }
+      }
+    }
+  }
+}

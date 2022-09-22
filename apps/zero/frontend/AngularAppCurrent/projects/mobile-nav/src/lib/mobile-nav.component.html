@@ -1,0 +1,13 @@
+<div [class]="classPrefix('MainPod')">
+  <ul [class]="classPrefix('MainItem0')" [ngStyle]="mobileDivStyle" >
+    <li *ngFor="let params of params.navItems">
+      <app-mobile-nav-item [params]="params" ></app-mobile-nav-item>
+    </li>
+  </ul>
+  <img 
+  [attr.aria-label]="params.closeMobileAriaLabel | translate"
+  [ngStyle]="params.closeMobileIconStyle"
+  [src]="params.closeMobileIconSrc ?? 'assets/media/nav_1.svg'" 
+  [alt]="params.closeMobileIconAlt" [class]="classPrefix('MainImg0')" 
+  (click)="params.closeMobileNav($event)" />
+</div>

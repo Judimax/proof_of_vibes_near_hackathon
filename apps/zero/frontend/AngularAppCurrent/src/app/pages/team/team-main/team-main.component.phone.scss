@@ -1,0 +1,13 @@
+@import "src/assets/styles/global.scss";
+
+#root team-main{
+  @media #{$mobile}{
+    .TeamMainPod0Item2{
+      flex:1 0 50%;
+      min-width: calc(248/16*1rem);
+    }
+    .TeamMainPod0Item1{
+      justify-content: center;
+    }
+  }
+}

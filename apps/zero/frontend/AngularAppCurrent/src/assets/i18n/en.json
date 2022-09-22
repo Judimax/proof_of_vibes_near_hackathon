@@ -1,0 +1,102 @@
+{
+  "global":{
+    "website":"SurfPost",
+    "logoImgAlt":"NIBLS inc. COIN"
+  },
+  "spotify":{
+    "topOfTheLeagueAddedSucess":"Top of the league was sucessfully added to your spotify playlist",
+    "topOfTheLeagueAddedFail":"There was an issue adding top of the league to your spotify playlist, please try again later or contact support if the issue persists"
+  },  
+  "landingMain":{
+    "connectWalletBtn":"Connect To Your Near Wallet"
+  },
+  "nav":{
+    "mainNav":["TEAM","MEDIA","SYMBOLS"],
+    "mobileNav":{
+      "iconAlt":"toggle mobile menu",
+      "close":{
+        "ariaLabel":"Close Mobile Nav Icon"
+      }
+    },
+    "midRight":{
+      "acct":"My Account"
+    },
+    "topLeft":{
+      "playSiteAudio":"Play Site Audio",
+      "pauseSiteAudio":"Pause Site Audio",
+      "addSpotifyButton":"Add Top Of The League To Spotify"
+    }
+  },
+  "teamMain":{
+    "title":" Team",
+    "summary":"The team at NIBLS is a group of dedicated, talented professionals who are at the heart of what makes this platform work. ",
+    "linkedInIconAlt":"An icon link to the users linkedin acct",
+    "members":[
+      {
+        "title":"Dashawn Bledsoe",
+        "imgAlt":"An image of Dashawn Bledsoe",
+        "desc":"Founder & Sport Inventor at National Intelligent Blockchain League Sports"
+      },
+      {
+        "title":"Tramaine Tyson",
+        "imgAlt":"An image of Tramaine Tyson",
+        "desc":"Finder"
+      },
+      {
+        "title":"Shawn Smith",
+        "imgAlt":"An image of Shawn Smith",
+        "desc":"Finder"
+      },
+      {
+        "title":"Jeffery Chen",
+        "imgAlt":"An image of Jeffery Chen",
+        "desc":"Mechanical Engineer, Sr. Product Desginer, Technical Co-Founder"
+      },
+      {
+        "title":"Anna Brook",
+        "imgAlt":"An image of Anna Brook",
+        "desc":"Product Manger"
+      },
+      {
+        "title":"Michael Odumosu",
+        "imgAlt":"An image of Michael Odumosu",
+        "desc":" Technical Cofounder, Lead Developer"
+      },
+      {
+        "title":"Franklin Monzon",
+        "imgAlt":"An image of Franklin Monzon",
+        "desc":"Financial Advisor"
+      },
+      {
+        "title":"Raphael Otache ",
+        "imgAlt":"An image of Raphael Otache",
+        "desc":"Finder"
+      }              
+    ]
+  },
+  "mediaMain":{
+    "title":"Media",
+    "wmlNotify":{
+      "loadArticlesError":"There was an error loading articles",
+      "stopTryingToLoadArticlesError":"The application was unable to load any articles, please try again later"
+    }
+  },
+  "symbolsMain":{
+    "title":"Symbols"
+  },
+
+  "footer":{
+    "title":"NIBLS",
+    "contact":{
+      "title":"Contact & Info",
+      "items":[
+        "Contact Us On Linkedin",
+        "Company Pitch Deck Link",
+        "Official NIBLS Coin Investor Presentation.pdf",
+        "Whitepapers - NIBLS Coin - Seeking $1.2M & Asking $250K.pdf"
+      ]
+
+    }
+  }
+
+}

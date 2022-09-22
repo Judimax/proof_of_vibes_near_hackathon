@@ -1,0 +1,18 @@
+@import "src/assets/styles/global.scss";
+
+
+:host {
+
+
+  &.MobileNavItemView{
+    .MobileNavItem{
+      &Main{
+        &Pod{}
+      }
+      &Pod{
+        &0{}
+      }
+    }
+  }
+
+}

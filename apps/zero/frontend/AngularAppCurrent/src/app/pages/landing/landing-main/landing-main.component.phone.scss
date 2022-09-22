@@ -1,0 +1,11 @@
+#root landing-main{
+  @media #{$mobile}{
+
+    .LandingMainPod0{
+      flex-direction: column;
+    }
+
+    
+
+  }
+}

@@ -1,0 +1,137 @@
+
+  $bs-primary: blue;
+  $bs-primary-gradient:linear-gradient( rgb(0, 0, 255) 0%, rgb(0, 100, 255) 80.2%);
+  $bs-secondary: white;
+  $bs-secondary-gradient:linear-gradient( white 0%, grey 120.2%);
+  $bs-tertiary:yellow;
+  $bs-tertiary-gradient:radial-gradient(farthest-corner at 100% 0px, $bs-tertiary 0%,goldenrod  200%);
+  $bs-quaternary: navy;
+  $bs-success: #198754;
+  $bs-info: #0dcaf0;
+  $bs-warning: #ffc107;
+  $bs-danger: #dc3545;
+  $bs-light: #f8f9fa;
+  $bs-dark: #212529;
+  $app-background:rgba(0, 0, 0, 0.3); 
+  $team-card:		rgb(18,18,18);
+
+  $spotify-primary-color:#1db954;    
+  $spotify-primary-gradient-color:linear-gradient(120deg, #1db954, #191414);
+
+  $spacing0: calc(1/16* 1rem);
+  $spacing1: calc(2/16* 1rem);
+  $spacing2: calc(4/16* 1rem);
+  $spacing3: calc(8/16* 1rem);
+  $spacing4: calc(12/16* 1rem);
+  $spacing5: calc(16/16* 1rem);
+  $spacing6: calc(24/16* 1rem);
+  $spacing7: calc(32/16* 1rem);
+  $spacing8: calc(48/16* 1rem);
+  $spacing9: calc(64/16* 1rem);
+  $spacing10: calc(72/16* 1rem);
+  $spacing11: calc(96/16* 1rem);
+  $spacing12: calc(128/16* 1rem);
+  $spacing13: calc(192/16* 1rem);
+  $spacing14: calc(256/16* 1rem);
+  $spacing15: calc(384/16* 1rem);
+  $spacing16: calc(512/16* 1rem);
+
+  $fontSize0: calc(12/16* 1rem);
+  $fontSize1: calc(16/16* 1rem);
+  $fontSize2: calc(24/16* 1rem);
+  $fontSize3: calc(32/16* 1rem);
+  $fontSize4: calc(48/16* 1rem);
+  $fontSize5: calc(72/16* 1rem);  
+  
+
+:root{
+  --app-background:#{$app-background};
+  --bs-primary: #{$bs-primary};
+  --bs-secondary: #{ $bs-secondary};
+  --bs-secondary-gradient: #{$bs-secondary-gradient};
+  --bs-tertiary: #{$bs-tertiary};
+  --bs-tertiary-gradient: #{$bs-tertiary-gradient};
+  --bs-quaternary: #{$bs-quaternary};
+  --bs-success: #{ $bs-success};
+  --bs-info: #{ $bs-info};
+  --bs-warning: #{ $bs-warning};
+  --bs-danger: #{ $bs-danger};
+  --bs-light: #{ $bs-light};
+  --bs-dark: #{ $bs-dark}; 
+
+
+  --spacing0: #{$spacing0};
+  --spacing1: #{$spacing1};
+  --spacing2: #{$spacing2};
+  --spacing3: #{$spacing3};
+  --spacing4: #{$spacing4};
+  --spacing5: #{$spacing5};
+  --spacing6: #{$spacing6};
+  --spacing7: #{$spacing7};
+  --spacing8: #{$spacing8};
+  --spacing9: #{$spacing9};
+  --spacing10: #{$spacing10};
+  --spacing11: #{$spacing11};
+  --spacing12: #{$spacing12};
+  --spacing13: #{$spacing13};
+  --spacing14: #{$spacing14};
+  --spacing15: #{$spacing15};
+  --spacing16: #{$spacing16};
+
+
+  --fontSize0: #{$fontSize0};
+  --fontSize1: #{$fontSize1};
+  --fontSize2: #{$fontSize2};
+  --fontSize3: #{$fontSize3};
+  --fontSize4: #{$fontSize4};
+  --fontSize5: #{$fontSize5};
+}
+
+
+
+
+@mixin GlobalButton0{
+  padding: var(--spacing3) var(--spacing6);
+  border-radius: var(--spacing6);
+  background: var(--bs-secondary-gradient);
+
+  label{
+    color: $bs-light;
+    font-size: var(--fontSize4)
+  }
+
+  &:hover {
+    background: var(--bs-tertiary-gradient);
+
+  }
+
+}
+
+
+
+@mixin outline1 {
+  border: 1px solid red;
+}
+
+@mixin outline2 {
+  border: 1px solid blue;
+}
+
+@mixin outline3 {
+  border: 1px solid green;
+}
+
+@mixin outline4 {
+  border: 1px dotted white;
+}
+
+
+$pageMaxWidth:calc(2400/16 * 1rem);
+// dev addtions
+@mixin pageLayout0{
+  flex: 0 0 90%;
+  max-width: $pageMaxWidth;
+}
+
+
+

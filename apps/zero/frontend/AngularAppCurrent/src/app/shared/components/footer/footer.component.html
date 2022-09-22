@@ -1,0 +1,21 @@
+<div [class]="classPrefix('MainPod0')">
+  <footer [class]="classPrefix('MainPod')">
+
+    <section [class]="classPrefix('Pod1')">
+      <h2 [class]="classPrefix('Pod1Title0')">{{ "footer.contact.title" | translate}}</h2>
+      <ul *ngFor="let item of contactItems">
+        <li>
+          <a [href]="item.href" [download]="item.download">
+            {{item.text | translate}}
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section [class]="classPrefix('Pod2')">
+
+    </section>
+    <section [class]="classPrefix('Pod3')">
+
+    </section>
+  </footer>
+</div>

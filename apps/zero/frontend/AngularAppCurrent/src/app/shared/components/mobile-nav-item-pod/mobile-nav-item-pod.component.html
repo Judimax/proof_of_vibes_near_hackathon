@@ -1,0 +1,8 @@
+<div [ngStyle]="meta.mainPod.style" [class]="classPrefix('MainPod')">
+  <a (click)="meta.link.click($event)" [ngStyle]="meta.link.style" *ngIf="meta.type === 'link'" href="">{{meta.link.value | translate}}</a>
+  <img [class]="classPrefix('MainImg0')" [ngStyle]="meta.img.style" *ngIf="meta.type === 'img'" [src]="meta.img.src" [alt]="meta.img.alt | translate"/>
+  <button (click)="meta.btn.click($event)" [class]="meta.btn.class" *ngIf="meta.type === 'btn' ">
+    <img  *ngIf="meta.btn.iconIsPresent" [src]="meta.btn.iconSrc" [alt]="meta.btn.iconAlt" />
+    <label>{{meta.btn.value | translate}}</label>
+  </button>
+</div>

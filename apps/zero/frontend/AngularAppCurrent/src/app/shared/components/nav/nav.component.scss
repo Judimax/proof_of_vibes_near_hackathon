@@ -1,0 +1,88 @@
+@import "src/assets/styles/global.scss";
+
+
+:host {
+ 
+
+  &.NavView{
+
+    .Nav{
+      &Main {
+        &Pod{
+          background: transparent;
+          display: flex;
+          justify-content: center;
+          * {
+            font-family: cadillacSans;
+          }
+        }
+      }
+
+
+      &Pod{
+        &0{
+          max-height:calc(150/16 * 1rem);
+          @include pageLayout0;
+           
+          width: 100%;      
+          
+          color: var(--bs-light);
+          padding:var(--spacing4);
+          &Img {
+            &0 {
+              width:20%;
+              max-width: calc(400/16 * 1rem);
+              min-width: calc(100/16 * 1rem);;
+              max-height:calc(50/16 * 1rem); 
+            }
+
+          }
+
+          &Button {
+
+            @for $i from 0 through 1 {
+              &#{$i} {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                margin:0 $spacing3 0 0 ;                  
+                label {
+                  font-size: 1rem !important;
+                  margin:0 0 0 $spacing3;                }
+                img{
+                  width: 1.5rem;
+                }
+              }
+            }
+
+            &0 {
+              @include GlobalButton0;
+            }
+            &1{
+              @include GlobalButton0;
+              background: none;
+              background-color: $spotify-primary-color;    
+              
+              &:hover {
+                background: $spotify-primary-gradient-color;
+              }              
+            }
+          }
+
+          &Item {
+            &0 {
+              display: flex;
+              justify-content: center;
+              margin: 0 0 var(--spacing4) 0;
+            }
+
+            
+          }
+
+
+        }
+      }
+    }
+  }
+
+}

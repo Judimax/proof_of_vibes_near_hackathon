@@ -1,0 +1,19 @@
+<div [class]="classPrefix('MainPod')">
+  <section [class]="classPrefix('Pod0')" [scrollBottomPagination]="scrollBottomPaginationParams" >
+    <div [class]="classPrefix('Pod0Item0')" *ngFor="let item of mediaItems">
+      <div [class]="classPrefix('Pod0Item1')">
+        <div [class]="classPrefix('Pod0Item2')">
+          <h2>
+            <a [href]="item.href">{{item.title}}</a>
+          </h2>
+          <img [class]="classPrefix('Pod0Img0')" [src]="item.imgSrc" [alt]="item.imgAlt">
+        </div>
+      </div>
+      <div [class]="classPrefix('Pod0Item1')">
+        <p>{{item.desc}}</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+

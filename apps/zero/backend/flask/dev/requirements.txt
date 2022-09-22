@@ -1,0 +1,12 @@
+﻿requests
+flask
+pyngrok
+gunicorn
+gevent
+newsapi-python
+pyngrok
+flask-ngrok
+pytest
+coverage
+requests-mock
+werkzeug

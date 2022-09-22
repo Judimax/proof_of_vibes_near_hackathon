@@ -1,0 +1,27 @@
+@import "src/assets/styles/global.scss";
+
+
+:host {
+
+
+  &.SymbolsMainView{
+    .SymbolsMain{
+      &Main{
+        &Pod{}
+      }
+      &Pod{
+        &0{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          &Title {
+            &0 {
+              
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

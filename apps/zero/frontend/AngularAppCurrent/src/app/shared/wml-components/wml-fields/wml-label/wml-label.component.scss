@@ -1,0 +1,33 @@
+@import "src/assets/styles/global.scss";
+
+
+:host {
+
+
+  &.WmlLabelView{
+    .WmlLabel{
+      &Main{
+        &Pod{
+
+          &Label{
+            &0{
+              display: flex;
+              *:not(:first-child){
+                margin: 0 0 0 var(--spacing2);
+              }              
+            }
+          }
+          &Error {
+            &0 {
+              color:var(--bs-danger);
+            }
+          }
+        }
+      }
+      &Pod{
+        &0{}
+      }
+    }
+  }
+
+}

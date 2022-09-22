@@ -1,0 +1,55 @@
+#root {
+  app-root {
+    wml-fields .Pod1>wml-dropdown>.MainPod {
+      width: 80%;
+    }
+
+    .AppMobileNav {
+      &Button {
+
+        @for $i from 0 through 1 {
+          &#{$i} {
+            height: 100%;
+            flex: 0 0 100%;
+            display: flex;
+            align-items: center;
+            margin: 0 $spacing3 0 0;
+            justify-content: center;
+
+            label {
+              font-size: 1rem !important;
+              margin: 0 0 0 $spacing3;
+              
+              
+            }
+
+            img {
+              width: 1.5rem;
+            }
+          }
+        }
+
+        &0 {
+          @include GlobalButton0;
+        }
+
+        &1 {
+          @include GlobalButton0;
+          label{
+            color: contrastColor(
+              $spotify-primary-color,
+              $bs-light
+              $bs-dark,
+            ) 
+          }
+          background: none;
+          background-color: $spotify-primary-color;
+
+          &:hover {
+            background: $spotify-primary-gradient-color;
+          }
+        }
+      }
+    }
+  }
+}

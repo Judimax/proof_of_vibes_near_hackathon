@@ -1,0 +1,6 @@
+<div [class]="classPrefix('MainPod')">
+  <div (click)="playlist.click($event)" [class]="classPrefix('MainItem0')" *ngFor="let playlist of spotifyPlaylists">
+    <img [class]="classPrefix('MainImg0')" [src]="playlist.src" [alt]="playlist.alt"/>
+    <h2>{{playlist.value}}</h2>
+  </div>
+</div>
