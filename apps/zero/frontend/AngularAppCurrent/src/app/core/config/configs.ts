@@ -41,12 +41,15 @@ class Configs {
     spotifyLoginEndpoint:() => this.backendDomain0 + "/spotify/login"
   }
 
-  spotify = {
-    topOfTheLeagueTrackId:"0FXx9QxSklTZ3PTCMcgOzM",
-    topOfTheLeagueURI:'spotify:track:1IBF7vWulIl86PmjXWsahH',
-    getUsersPlaylistEndpoint:() => this.backendDomain0 + "/spotify/get_users_playlists",
-    postItemToPlaylistEndpoint:()=> this.backendDomain0 + "/spotify/add_item_to_playlist",
+  generateNFT = {
+    nameFieldFormControlName:"name",
+    emailFieldFormControlName:"email",
+    dobFieldFormControlName:"dob",
+    genderFieldFormControlName:"gender",
+    phoneFieldFormControlName:"phone"
   }
+
+
 }
 
 class DefaultConfigs extends Configs  {

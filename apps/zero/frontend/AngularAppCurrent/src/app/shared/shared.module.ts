@@ -18,7 +18,7 @@ import { PenroseComponent } from './components/penrose/penrose.component';
 import { CustomLabelComponent } from './components/custom-label/custom-label.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ScrollBottomPaginationDirective } from './directives/scroll-bottom-pagination-directive/scroll-bottom-pagination.directive';
-import { SpotifyPlaylistsComponent } from './components/spotify-playlists/spotify-playlists.component';
+
 import { NiblsIsPresentDirective } from '../../../projects/nibls-is-present/src/public-api';
 import {  MobileNavModule } from '../../../projects/mobile-nav/src/public-api';
 import { MobileNavItemPodComponent } from './components/mobile-nav-item-pod/mobile-nav-item-pod.component';
@@ -40,7 +40,7 @@ let components = [
   CustomLabelComponent,
   FooterComponent,
   ScrollBottomPaginationDirective,
-  SpotifyPlaylistsComponent,
+  
   MobileNavItemPodComponent,
   
   // lib

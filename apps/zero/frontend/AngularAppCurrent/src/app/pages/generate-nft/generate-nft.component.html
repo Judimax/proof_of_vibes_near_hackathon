@@ -1,0 +1,8 @@
+<div [class]="classPrefix('MainPod')">
+  <div [class]="classPrefix('Pod0')">
+    <wml-card [class]="classPrefix('Pod0Item0')">
+      <wml-form [fields]="wmlForm.fields"></wml-form>
+      <button [class]="classPrefix('Pod0Btn0')" (click)="submitBtn.click($event)">{{submitBtn.value}}</button>
+    </wml-card>
+  </div>
+</div>

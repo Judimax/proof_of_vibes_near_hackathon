@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GenerateNFTComponent } from './pages/generate-nft/generate-nft.component';
 
 const routes: Routes = [
   {
@@ -11,13 +12,9 @@ const routes: Routes = [
     loadChildren: () => import('./pages/team/team.module').then(m => m.TeamModule),
   },
   {
-    path: 'media',
-    loadChildren: () => import('./pages/media/media.module').then(m => m.MediaModule),
-  },
-  {
-    path: 'symbols',
-    loadChildren: () => import('./pages/symbols/symbols.module').then(m => m.SymbolsModule),
-  }          
+    path:'generateNFT',
+    component:GenerateNFTComponent
+  }        
 ];
 
 @NgModule({

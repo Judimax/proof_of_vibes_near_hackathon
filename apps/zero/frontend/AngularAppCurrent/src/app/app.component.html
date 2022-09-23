@@ -10,8 +10,6 @@
   <section *ngIf="baseService.toggleOverlayLoadingSubj | async" [class]="classPrefix('Pod2')">
     <app-penrose  ></app-penrose>
   </section>
-  <div   [class]="classPrefix('Pod3')" [niblsIsPresent]="spotifyPlaylistsParams.isPresentSubj | async">
-    <app-spotify-playlists  [myParams]="spotifyPlaylistsParams" [class]="classPrefix('Pod3Item0')"></app-spotify-playlists>
-  </div>
+
   <app-mobile-nav *ngIf="baseService.toggleMobileNavSubj | async" [params]="mobileNavParams"></app-mobile-nav>
 </div>

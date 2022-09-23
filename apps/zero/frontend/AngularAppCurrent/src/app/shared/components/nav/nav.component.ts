@@ -20,7 +20,7 @@ import { WMLButton, WMLImage, WMLRoute } from '@windmillcode/wml-components-base
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  // changeDetection:ChangeDetectionStrategy.OnPush
 
 })
 export class NavComponent  {

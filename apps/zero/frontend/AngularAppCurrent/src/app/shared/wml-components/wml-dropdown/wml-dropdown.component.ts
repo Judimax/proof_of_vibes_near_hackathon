@@ -109,6 +109,7 @@ export class WmlDropdownComponent implements ControlValueAccessor {
         (parentDropdown, parentOption, child) => {
 
           child.options.forEach((option) => {
+            
             option.parentDropdown = parentDropdown;
             option.parentOption = parentOption;
 

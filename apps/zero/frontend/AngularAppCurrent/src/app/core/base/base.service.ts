@@ -9,6 +9,7 @@ import { WMLButton, WMLUIProperty } from '@shared/wml-components/models';
 import { FormControl, FormGroup } from '@angular/forms';
 import { WMLField } from '@shared/wml-components/wml-fields/wml-fields.component';
 import { CustomLabelComponent } from '@shared/components/custom-label/custom-label.component';
+import { WmlLabelMeta } from '@shared/wml-components/wml-fields/wml-label/wml-label.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -37,10 +38,28 @@ export class BaseService {
   })
   playSiteAudioSubj = new Subject<boolean>()
   toggleMobileNavSubj = new Subject<boolean>()
+
+  userAcctInfo = {
+    name:""
+  }
   
   
 
+  generateInputFormField=(labelValue:string,fieldFormControlName,fieldParentForm,errorMsgs:WmlLabelMeta["errorMsgs"])=>{
 
+    return this.generateFormField(
+      new WMLField({
+        type: "custom",
+        custom: {
+          selfType: "wml-card",
+          fieldParentForm,
+          fieldFormControlName,
+          labelValue,
+          errorMsgs
+        }
+      })
+    )
+  }
 
   generateFormField(wmlField:WMLField){
     wmlField.label.custom.cpnt = CustomLabelComponent

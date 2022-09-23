@@ -62,6 +62,7 @@ export class LandingMainComponent {
           console.log(nearConnection )
 
           this.walletConnection = new WalletConnection(nearConnection,"1");
+          this.connectWallet()
         })
       )
       .subscribe()
@@ -69,18 +70,24 @@ export class LandingMainComponent {
 
   connectWallet = ()=>{
     this.walletConnection.requestSignIn(
-      "example-contract.testnet", // contract requesting access
-      "Example App", // optional title
+      "aurora.fakes.testnet", // contract requesting access
+      "Proof Of Vibes", // optional title
+      "http://localhost:4200", // optional redirect URL on success
+      "http://localhost:4200/failure" // optional redirect URL on failure
     );
   }
 
+  signOut=()=>{
+    this.walletConnection.signOut()
+  }
+
   connectWalletBtn = new WMLButton({
-    click:this.connectWallet,
+    click:this.initNearWalletLogic,
     value:"landingMain.connectWalletBtn"
   })
   ngOnInit(): void {
-    this.initNearWalletLogic()
-
+    // this.initNearWalletLogic()
+    
   }
 
   ngAfterViewInit() {

@@ -5,16 +5,16 @@ import { configureTestingModuleForComponents, grabComponentInstance, mockTransla
 // rxjs
 import { Subject } from 'rxjs';
 
-import { SymbolsMainComponent } from './symbols-main.component';
+import { GenerateNFTComponent } from './generate-nft.component';
 
 
-describe('SymbolsMainComponent', () => {
-  let cpnt: SymbolsMainComponent;
-  let fixture: ComponentFixture<SymbolsMainComponent>;
+describe('GenerateNFTComponent', () => {
+  let cpnt: GenerateNFTComponent;
+  let fixture: ComponentFixture<GenerateNFTComponent>;
 
   beforeEach(async () => {
-    await configureTestingModuleForComponents(SymbolsMainComponent,{mockTranslateService});
-    ({fixture, cpnt} =  grabComponentInstance(SymbolsMainComponent));
+    await configureTestingModuleForComponents(GenerateNFTComponent,{mockTranslateService});
+    ({fixture, cpnt} =  grabComponentInstance(GenerateNFTComponent));
     fixture.detectChanges()
   })
 

@@ -1,0 +1,34 @@
+@import "src/assets/styles/global.scss";
+
+
+:host {
+
+
+  &.GenerateNFTView{
+    .GenerateNFT{
+      &Main{
+        &Pod{}
+      }
+      &Pod{
+        &0{
+          padding:$spacing5;
+
+          &Item {
+            &0 {
+              background-color: $bs-light;
+              color:$bs-dark
+            
+            }
+          }
+          &Btn{
+            &0{
+              @include GlobalButton0;
+              font-size: $fontSize1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
