@@ -8,8 +8,7 @@ import { UtilityService } from '@app/core/utility/utility.service';
 // rxjs
 import { Subject } from 'rxjs';
 
-// misc
-import { ENV } from '@app/core/config/configs';
+
 
 // wml components
 import { WMLView } from '@shared/wml-components/models';

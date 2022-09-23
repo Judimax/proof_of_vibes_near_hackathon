@@ -10,7 +10,7 @@ import { BaseService } from '@core/base/base.service';
 import { Subject } from 'rxjs';
 
 // misc
-import { ENV } from '@app/core/config/configs';
+import { ENV } from '@environment/environment';
 
 @Component({
   selector: 'template',

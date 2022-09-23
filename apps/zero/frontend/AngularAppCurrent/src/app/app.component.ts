@@ -11,7 +11,7 @@ import { BaseService } from '@core/base/base.service';
 
 // misc
 import { environment as env } from "@environment/environment";
-import { ENV } from '@core/config/configs';
+import { ENV } from '@environment/environment';
 import { GenerateMobileNavBtnItemParams, UtilityService } from '@core/utility/utility.service';
 
 import { MobileNavParams } from '../../projects/mobile-nav/src/public-api';
@@ -57,42 +57,9 @@ export class AppComponent {
     })
   })
 
-  navigateWhenMobileNavItemIsClicked = (destination:string)=>{
-    return ($evt)=>{
-      $evt.preventDefault()
-      this.router.navigateByUrl(destination)
-      this.baseService.toggleMobileNavSubj.next(false)
-    }
-  }
-  teamMobileNavItem = this.utilService.generateMobileNavLinkItem(
-    "nav.mainNav.0",
-    this.navigateWhenMobileNavItemIsClicked(ENV.nav.team)
-    )
-  mediaMobileNavItem = this.utilService.generateMobileNavLinkItem(
-    "nav.mainNav.1",
-    this.navigateWhenMobileNavItemIsClicked(ENV.nav.media)
-    )
-  symbolsMobileNavItem = this.utilService.generateMobileNavLinkItem(
-    "nav.mainNav.2",
-    this.navigateWhenMobileNavItemIsClicked(ENV.nav.symbols)
-    )
-  playSiteAudioMobileBtnItem =(()=>{
-    let btnItem = this.utilService.generateMobileNavBtnItem(new GenerateMobileNavBtnItemParams({
-      i18nKey:"nav.topLeft.playSiteAudio",
-      btnClass:"AppMobileNavButton0"
-    }))
+ 
 
-    btnItem.meta.btn.click = this.navService.toggleMainAudio(btnItem.meta.btn)
-    return btnItem
-  })()
-  addToSpotfiyMobileBtnItem = this.utilService.generateMobileNavBtnItem(new GenerateMobileNavBtnItemParams({
-    i18nKey:"nav.topLeft.addSpotifyButton",
-    btnClass:"AppMobileNavButton1",
-    btnIconIsPresent:true,
-    btnClick:this.navService.clickSpotifyBtn,
-    btnIconSrc:"assets/media/nav/0.svg",
-    btnIconAlt:"nav.topLeft.spotifyButton.add",    
-  }))
+
   
   mobileNavParams = new MobileNavParams({
     closeMobileAriaLabel:"nav.mobileNav.close.ariaLabel",
@@ -101,12 +68,7 @@ export class AppComponent {
     },
     closeMobileIconSrc:"assets/media/mobile_nav/0.svg",
     navItems:[
-      this.headerMobileNavItem,
-      this.teamMobileNavItem,
-      this.mediaMobileNavItem,
-      this.symbolsMobileNavItem,
-      this.playSiteAudioMobileBtnItem,
-      this.addToSpotfiyMobileBtnItem      
+  
     ]
   })
 
@@ -118,7 +80,7 @@ export class AppComponent {
       filter((userAcctInfo)=> userAcctInfo['account_id']),
       tap(userAcctInfo=>{
         console.log(userAcctInfo)
-        this.baseService.userAcctInfo.name = userAcctInfo['account_id']
+        this.baseService.nearWalletAcctInfo.name = userAcctInfo['account_id']
         this.router.navigateByUrl('/generateNFT')
       })
     )
@@ -126,7 +88,9 @@ export class AppComponent {
   
 
 
+
   ngOnInit() {
+    ;(window as any).process = {}
     this.pullNearWalletParams().subscribe()
   }
 

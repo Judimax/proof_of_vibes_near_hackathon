@@ -4,8 +4,9 @@ import { Inject, Injectable } from '@angular/core';
 import { BaseService } from '@core/base/base.service';
 
 // misc
-import { ENV } from '@core/config/configs';
+
 import { LinkedList } from '@core/utility/utils';
+import { ENV } from '@environment/environment';
 import { WMLButton } from '@windmillcode/wml-components-base';
 
 @Injectable({
@@ -58,9 +59,7 @@ export class NavService {
       this.mainAudioCurrentOption = this.mainAudioCurrentOption.next
     }
   }
-  clickSpotifyBtn =()=>{
-    window.location.href = (ENV.nav.spotifyLoginEndpoint())
-  }
+
 }
 
 

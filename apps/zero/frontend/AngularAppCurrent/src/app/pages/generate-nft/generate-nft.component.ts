@@ -7,11 +7,11 @@ import { UtilityService } from '@app/core/utility/utility.service';
 import { BaseService } from '@core/base/base.service';
 
 // rxjs
-import { Subject } from 'rxjs';
+import { from, Subject } from 'rxjs';
 import { takeUntil,tap } from 'rxjs/operators';
 
 // misc
-import { ENV } from '@app/core/config/configs';
+import { ENV } from '@environment/environment';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { WMLField } from '@shared/wml-components/wml-fields/wml-fields.component';
 import { WMLForm } from '@shared/wml-components/wml-form/wml-form.component';
@@ -19,6 +19,11 @@ import { WMLButton } from '@windmillcode/wml-components-base';
 import { WmlDropdownComponent, WmlDropdownMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown.component';
 import { WmlDropdownOptionsMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown-option/wml-dropdown-option.component';
 import { DropdownOptionComponent, DropdownOptionMeta } from '@shared/components/dropdown-option/dropdown-option.component';
+
+
+//minbase
+import { Chain, Network, Wallet } from 'mintbase'; 
+
 
 @Component({
   selector: 'generate-nft',
@@ -98,7 +103,8 @@ export class GenerateNFTComponent  {
                 title:genderTitle,
                 subTitle:"",
                 style:{
-                  "backgroundColor":"white"
+                  "backgroundColor":"white",
+                  color:"black"
                 }
               }),
             },
@@ -141,6 +147,7 @@ export class GenerateNFTComponent  {
 
   createNFT = ()=>{
     console.log(this.rootFormGroup.value)
+
   }
 
 
@@ -149,8 +156,24 @@ export class GenerateNFTComponent  {
     click:this.createNFT
   })
 
+  connectNearWalletToMintBase =()=>{
+    let {name:accountId,network} = this.baseService.nearWalletAcctInfo;
+    const nearKeystore = `near-api-js:keystore:${accountId}:${network}`;
+
+    // return from(
+    //   new Wallet().init({
+    //     networkName: Network.testnet ,
+    //     chain,
+    //     apiKey,
+    //   })
+    // )
+    // .pipe()
+
+
+  }
   
   ngOnInit(): void {
+    // this.connectNearWalletToMintBase().subscribe()
   }
 
   ngOnDestroy(){

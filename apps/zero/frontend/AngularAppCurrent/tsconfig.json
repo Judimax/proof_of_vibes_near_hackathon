@@ -1,6 +1,6 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
+  "compileOnSave": true,
   "compilerOptions": {
     "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
@@ -19,12 +19,18 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2020",
-    "module": "es2020",
+    "module": "esnext",
     "allowSyntheticDefaultImports": true,
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "strictNullChecks": false,
+    "incremental": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    // "lib": [
+    //   "es2020",
+    //   "dom"
+    // ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "paths": {
 
       "@core/*": [
@@ -50,7 +56,8 @@
       ],
     },
     "types": [
-      "jasmine"
+      "jasmine",
+      "node"
     ]
   },
   "angularCompilerOptions": {

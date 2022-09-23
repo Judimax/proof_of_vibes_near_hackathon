@@ -13,6 +13,7 @@
           flex-direction: column;
           align-items: center;
 
+
         } 
       }
 
@@ -54,6 +55,32 @@
             &0{
               @include GlobalButton0;
               font-size: $fontSize2;
+            }
+          }
+
+        }
+        &1{
+          display: none;
+          color: $bs-dark;
+          flex-direction: column;
+          align-items: center;
+          padding:0 $spacing6 $spacing10 $spacing6;
+          &Item {
+            &0 {
+              border: calc(1/32 * 1rem) solid $bs-secondary;
+              padding: $spacing2 $spacing5;
+              display: inline-block;
+              h2{
+                width: 100%;
+              }          
+            }
+          }
+          &Title {
+            &0 {
+              font-size: calc(100/16 * 1rem);
+            }
+            &1 {
+              font-size: calc(30/16 * 1rem);
             }
           }
 

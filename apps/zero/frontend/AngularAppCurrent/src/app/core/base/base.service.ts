@@ -10,6 +10,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { WMLField } from '@shared/wml-components/wml-fields/wml-fields.component';
 import { CustomLabelComponent } from '@shared/components/custom-label/custom-label.component';
 import { WmlLabelMeta } from '@shared/wml-components/wml-fields/wml-label/wml-label.component';
+
+// mintbase
+import { Network } from 'mintbase';
+import { HttpClient } from '@angular/common/http';
+import { ENV } from '@environment/environment';
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +25,7 @@ export class BaseService {
 
   constructor(
     private utilService:UtilityService,
+    private http:HttpClient
   ) { }
 
   appCdRef!:ChangeDetectorRef
@@ -39,8 +48,16 @@ export class BaseService {
   playSiteAudioSubj = new Subject<boolean>()
   toggleMobileNavSubj = new Subject<boolean>()
 
-  userAcctInfo = {
-    name:""
+  nearWalletAcctInfo = {
+    name:"michaelodumosu29.testnet",
+    network:Network.testnet
+  }
+  
+
+  getWalletInfo = ()=>{
+    return this.http.get(
+      ENV.generateNFT.getWalletInfo()
+    )
   }
   
   

@@ -3,7 +3,23 @@
 
 
 
+    .NavMainPod{
+      background-color: transparent;
+    }
 
+    .NavPod0Item0{
+      h4{
+        display: none;
+      }
+      justify-content: center;
+    }
+
+    .NavPod0Img0{
+      width: 40%;
+      max-width: calc(800/16 * 1rem);
+      min-width: calc(200/16 * 1rem);;
+      max-height:calc(100/16 * 1rem);       
+    }
 
   }
 }

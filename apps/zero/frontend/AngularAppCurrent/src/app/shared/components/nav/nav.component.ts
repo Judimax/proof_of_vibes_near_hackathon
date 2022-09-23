@@ -10,7 +10,7 @@ import { BaseService } from '@core/base/base.service';
 import { Subject } from 'rxjs';
 
 // misc
-import { ENV } from '@app/core/config/configs';
+import { ENV } from '@environment/environment';
 import { NavService } from '@shared/services/nav/nav.service';
 
 // wml-components
@@ -38,22 +38,6 @@ export class NavComponent  {
 
 
 
-  mainAudioButton = (()=>{
-    let btn = new WMLButton({
-      value:"nav.topLeft.playSiteAudio",
-    })
-    btn.click = this.navService.toggleMainAudio(btn)
-    return btn
-  })()
-
-  spotifyButton = new WMLButton({
-    value:"nav.topLeft.addSpotifyButton",
-    buttonClass:this.classPrefix("Pod0Button1"),
-    iconIsPresent:true,
-    iconSrc:"assets/media/nav/0.svg",
-    iconAlt:"nav.topLeft.spotifyButton.add",
-    click:this.navService.clickSpotifyBtn
-  })
 
   mobileNavMenuIcon = new WMLImage({
     src:"assets/media/nav/1.svg",

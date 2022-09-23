@@ -23,5 +23,16 @@
       </wml-card>
     </div>
   </section>
+  <section [class]="classPrefix('Pod1')">
+    <div [class]="classPrefix('Pod1Item0')">
+      <h2>POV CHECK IN</h2>
+    </div>
+    <h2 [class]="classPrefix('Pod1Title0')">QR</h2>
+    <div (click)="connectWalletBtn.click($event)" [class]="classPrefix('Pod1Item0')">
+      <h2>CONNECT TO NEAR WALLET</h2>
+    </div>
+    <qr-code [value]="createNearWalletLink" size="300" errorCorrectionLevel="M"></qr-code>
+    <h2 [class]="classPrefix('Pod1Title1')">GOOD VIBES ON CHAIN</h2>
+  </section>
 
 </div>

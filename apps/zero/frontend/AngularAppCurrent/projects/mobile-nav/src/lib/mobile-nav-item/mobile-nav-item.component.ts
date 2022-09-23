@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
 import { takeUntil,tap } from 'rxjs/operators';
 
 // misc
-import { ENV } from '@app/core/config/configs';
+import { ENV } from '@environment/environment';
 import { addCustomComponent, WMLCustomComponent } from '@windmillcode/wml-components-base';
 
 @Component({
