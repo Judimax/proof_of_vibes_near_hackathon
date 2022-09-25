@@ -51,11 +51,31 @@ export class AppComponent {
     meta: new MobileNavItemPodParams({
       type:"img",
       img:new WMLImage({
-        src:"assets/media/logo_0.png",
+        src:"assets/media/shared/logo.png",
         alt:"global.logoImgAlt",
+        style:{
+          "width":"50%",
+          "height":"auto"
+        }
       })
     })
   })
+
+  navigateWhenMobileNavItemIsClicked = (destination:string)=>{
+    return ($evt)=>{
+      $evt.preventDefault()
+      this.router.navigateByUrl(destination)
+      this.baseService.toggleMobileNavSubj.next(false)
+    }
+  }
+  generateNFTMobileNavItem = this.utilService.generateMobileNavLinkItem(
+    "Generate Your NFT",
+    this.navigateWhenMobileNavItemIsClicked("/generateNFT")
+    )
+  vibesMapMobileNavItem = this.utilService.generateMobileNavLinkItem(
+    "Vibes Map",
+    this.navigateWhenMobileNavItemIsClicked("/vibesmap")
+    )
 
  
 
@@ -68,7 +88,9 @@ export class AppComponent {
     },
     closeMobileIconSrc:"assets/media/mobile_nav/0.svg",
     navItems:[
-  
+      this.headerMobileNavItem,
+      this.generateNFTMobileNavItem,
+      this.vibesMapMobileNavItem
     ]
   })
 
@@ -80,7 +102,7 @@ export class AppComponent {
       filter((userAcctInfo)=> userAcctInfo['account_id']),
       tap(userAcctInfo=>{
         console.log(userAcctInfo)
-        this.baseService.nearWalletAcctInfo.name = userAcctInfo['account_id']
+        this.baseService.nearWalletAcctInfo.accountId = userAcctInfo['account_id']
         this.router.navigateByUrl('/generateNFT')
       })
     )
@@ -90,7 +112,20 @@ export class AppComponent {
 
 
   ngOnInit() {
-    ;(window as any).process = {}
+    this.baseService.getWalletInfo()
+    .pipe(
+      takeUntil(this.ngUnsub),
+      tap((res:any)=>{
+        
+        this.baseService.nearWalletAcctInfo.accountId = res.data.near_username
+        this.baseService.nearWalletAcctInfo.network = res.data.network 
+
+        if(!this.baseService.nearWalletAcctInfo){
+
+        }
+      })
+    )
+    .subscribe()
     this.pullNearWalletParams().subscribe()
   }
 

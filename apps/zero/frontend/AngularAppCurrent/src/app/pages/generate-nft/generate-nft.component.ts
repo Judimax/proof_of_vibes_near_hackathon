@@ -8,7 +8,7 @@ import { BaseService } from '@core/base/base.service';
 
 // rxjs
 import { from, Subject } from 'rxjs';
-import { takeUntil,tap } from 'rxjs/operators';
+import { delay, takeUntil,tap } from 'rxjs/operators';
 
 // misc
 import { ENV } from '@environment/environment';
@@ -22,7 +22,8 @@ import { DropdownOptionComponent, DropdownOptionMeta } from '@shared/components/
 
 
 //minbase
-import { Chain, Network, Wallet } from 'mintbase'; 
+const BN = require("bn.js");
+
 
 
 @Component({
@@ -145,32 +146,57 @@ export class GenerateNFTComponent  {
     fields: this.fields
   })  
 
-  createNFT = ()=>{
-    console.log(this.rootFormGroup.value)
+  ensureConnection = ()=>{
+    if(!this.baseService.nearWalletAcctInfo.walletConnection){
 
+      this.baseService.getNearAndWalletConnection(false)
+      .pipe(
+      takeUntil(this.ngUnsub),
+      tap(()=>{
+        console.log(this.baseService.nearWalletAcctInfo)
+        
+      }),
+      delay(5000),
+      tap(()=>{
+        this.createNFT()
+      })
+    )
+    .subscribe()
+    
+    }
+    else{
+      this.createNFT()
+    }
+  }
+
+  createNFT = ()=>{
+
+    this.baseService.nearWalletAcctInfo.nftContract
+    .nft_mint(
+      {
+        token_id: `${this.baseService.nearWalletAcctInfo.accountId}-go-team-token-${this.baseService.nearWalletAcctInfo.counter}`,
+        metadata: {
+          title: "My Non Fungible Team Token",
+          description: "The Team Most Certainly Goes :)",
+          media:
+            "https://bafybeiftczwrtyr3k7a2k4vutd3amkwsmaqyhrdzlhvpt33dyjivufqusq.ipfs.dweb.link/goteam-gif.gif",
+        },
+        receiver_id: this.baseService.nearWalletAcctInfo.accountId,      
+      },
+      300000000000000, // attached GAS (optional)
+      new BN("1000000000000000000000000")
+    )
   }
 
 
   submitBtn = new WMLButton({
     value:"Create NFT",
-    click:this.createNFT
+    click:this.ensureConnection
   })
 
-  connectNearWalletToMintBase =()=>{
-    let {name:accountId,network} = this.baseService.nearWalletAcctInfo;
-    const nearKeystore = `near-api-js:keystore:${accountId}:${network}`;
-
-    // return from(
-    //   new Wallet().init({
-    //     networkName: Network.testnet ,
-    //     chain,
-    //     apiKey,
-    //   })
-    // )
-    // .pipe()
 
 
-  }
+
   
   ngOnInit(): void {
     // this.connectNearWalletToMintBase().subscribe()

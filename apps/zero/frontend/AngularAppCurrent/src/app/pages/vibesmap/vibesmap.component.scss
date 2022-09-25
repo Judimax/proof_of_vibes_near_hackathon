@@ -1,0 +1,32 @@
+@import "src/assets/styles/global.scss";
+
+
+:host {
+
+  #VibesmapPod0Img0{
+    width: calc(16/16 * 1rem);
+    height: auto;
+  }
+
+  &.VibesmapView{
+    .Vibesmap{
+      &Main{
+        &Pod{
+          height:20rem;
+        }
+      }
+      &Pod{
+        &0{
+          height:100%;
+          &Img {
+            &0 {
+              width: calc(16/16 * 1rem);
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

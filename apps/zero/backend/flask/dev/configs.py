@@ -14,7 +14,9 @@ class DevConfigs:
   }
 
   mintbase = {
-    'api_key':os.getenv("MINTBASE_API_KEY")
+    'api_key':os.getenv("MINTBASE_API_KEY"),
+    "near_username":"michaelodumosu29.testnet",
+    "network":"testnet"    
   }
  
 class TestConfigs(DevConfigs):

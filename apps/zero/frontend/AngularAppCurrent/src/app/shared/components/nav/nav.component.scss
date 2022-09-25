@@ -4,8 +4,8 @@
 :host {
  
 
-  &.NavView{
-
+  &.NavView{  
+    margin: 0 0 $spacing5 0;
     .Nav{
       &Main {
         &Pod{
@@ -31,10 +31,10 @@
           padding:var(--spacing4);
           &Img {
             &0 {
-              width:20%;
+              width:10%;
+              height: auto;
               max-width: calc(400/16 * 1rem);
-              min-width: calc(100/16 * 1rem);;
-              max-height:calc(50/16 * 1rem); 
+              // min-width: calc(100/16 * 1rem);;
             }
 
           }
@@ -46,7 +46,7 @@
                 height: 100%;
                 display: flex;
                 align-items: center;
-                margin:0 $spacing3 0 0 ;                  
+                margin:$spacing3  ;                  
                 label {
                   font-size: 1rem !important;
                   margin:0 0 0 $spacing3;                }
@@ -60,6 +60,7 @@
               @include GlobalButton0;
             }
             &1{
+              display: none;
               @include GlobalButton0;
               background: none;
               background-color: $spotify-primary-color;    

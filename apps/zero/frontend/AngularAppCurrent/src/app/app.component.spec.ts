@@ -80,8 +80,8 @@ fdescribe('AppComponent', () => {
       expect(cpnt.spotifyPlaylistsParams).toBeInstanceOf(SpotifyPlaylistsParams)
       ;[
         cpnt.headerMobileNavItem,
-        cpnt.teamMobileNavItem,
-        cpnt.mediaMobileNavItem,
+        cpnt.generateNFTMobileNavItem,
+        cpnt.vibesMapMobileNavItem,
         cpnt.symbolsMobileNavItem,
         cpnt.playSiteAudioMobileBtnItem,
         cpnt.addToSpotfiyMobileBtnItem,

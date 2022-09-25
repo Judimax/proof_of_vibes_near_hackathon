@@ -21,6 +21,7 @@ import { Observable } from 'rxjs';
 // ngrx
 import { StoreModule } from '@ngrx/store';
 import { GenerateNFTComponent } from './pages/generate-nft/generate-nft.component';
+import { VibesmapComponent } from './pages/vibesmap/vibesmap.component';
 
 
 
@@ -58,6 +59,7 @@ function waitFori18nextToLoad(translateService: TranslateService): () => Observa
   declarations: [
     AppComponent,
     GenerateNFTComponent,
+    VibesmapComponent,
   ],
   imports: [
     BrowserModule,

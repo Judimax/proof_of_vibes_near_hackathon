@@ -40,49 +40,18 @@ export class LandingMainComponent {
   ngUnsub = new Subject<void>()
 
   createNearWalletLink = "https://wallet.near.org/create"
-  walletConnection
+  
 
-  initNearWalletLogic = () => {
-    let { keyStores } = nearAPI;
-    let myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
-    const { connect } = nearAPI;
-
-    const connectionConfig = {
-      networkId: "testnet",
-      keyStore: myKeyStore, // first create a key store 
-      nodeUrl: "https://rpc.testnet.near.org",
-      walletUrl: "https://wallet.testnet.near.org",
-      helperUrl: "https://helper.testnet.near.org",
-      explorerUrl: "https://explorer.testnet.near.org",
-    };
-    from(connect(connectionConfig))
-      .pipe(
-        takeUntil(this.ngUnsub),
-        tap((nearConnection ) => {
-          console.log(nearConnection )
-
-          this.walletConnection = new WalletConnection(nearConnection,"1");
-          this.connectWallet()
-        })
-      )
-      .subscribe()
-  }
-
-  connectWallet = ()=>{
-    this.walletConnection.requestSignIn(
-      "aurora.fakes.testnet", // contract requesting access
-      "Proof Of Vibes", // optional title
-      "http://localhost:4200", // optional redirect URL on success
-      "http://localhost:4200/failure" // optional redirect URL on failure
-    );
-  }
-
-  signOut=()=>{
-    this.walletConnection.signOut()
-  }
 
   connectWalletBtn = new WMLButton({
-    click:this.initNearWalletLogic,
+    click:()=>{
+      this.baseService.getNearAndWalletConnection(true)
+      .pipe(
+        takeUntil(this.ngUnsub),
+
+      )
+      .subscribe()
+    },
     value:"landingMain.connectWalletBtn"
   })
   ngOnInit(): void {

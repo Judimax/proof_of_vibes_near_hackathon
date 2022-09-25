@@ -39,23 +39,19 @@ export class NavComponent  {
 
 
 
-  mobileNavMenuIcon = new WMLImage({
-    src:"assets/media/nav/1.svg",
-    alt:"nav.mobileNav.iconAlt",
-    ariaLabel:"nav.mobileNav.iconAlt",
-    click:()=>{
-      this.baseService.toggleMobileNavSubj.next(true)
-      this.mobileNavMenuIcon.ariaExpanded = true
-    }
-  })
+
+  openMobileNav = () =>{
+
+    this.baseService.toggleMobileNavSubj.next(true)
+    
+  }
 
   
-  mainNavItems = Array(0)
-  .fill(null)
-  .map((nullVal,index0)=>{
+  mainNavItems = ["Generate Your NFT","Vibes Map"]
+  .map((value,index0)=>{
     return new WMLRoute({
-      value:"nav.mainNav."+index0,
-      route:[ENV.nav.team,ENV.nav.media,ENV.nav.symbols][index0]
+      value,
+      route:["/generateNFT","/vibesmap"][index0]
     })
   })
 

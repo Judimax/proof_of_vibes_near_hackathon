@@ -11,9 +11,17 @@
       h4{
         display: none;
       }
+      flex-direction: column;
       justify-content: center;
     }
 
+    .NavPod0Item1{
+      display: none;
+    }
+
+    .NavPod0Button1{
+      display: block;
+    }
     .NavPod0Img0{
       width: 40%;
       max-width: calc(800/16 * 1rem);

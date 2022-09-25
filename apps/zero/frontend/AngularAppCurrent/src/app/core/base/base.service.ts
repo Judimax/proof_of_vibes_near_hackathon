@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Injectable } from '@angular/core';
-import { delay, finalize, ReplaySubject, Subject, tap } from 'rxjs';
+import {  delay, finalize, from, ReplaySubject, Subject, tap } from 'rxjs';
 
 // services
 import { UtilityService } from '@core/utility/utility.service';
@@ -12,9 +12,14 @@ import { CustomLabelComponent } from '@shared/components/custom-label/custom-lab
 import { WmlLabelMeta } from '@shared/wml-components/wml-fields/wml-label/wml-label.component';
 
 // mintbase
-import { Network } from 'mintbase';
+
 import { HttpClient } from '@angular/common/http';
 import { ENV } from '@environment/environment';
+import { Contract, WalletConnection } from 'near-api-js';
+
+// near 
+import * as nearAPI from "near-api-js";
+const { connect, keyStores } = nearAPI;
 
 
 
@@ -48,13 +53,74 @@ export class BaseService {
   playSiteAudioSubj = new Subject<boolean>()
   toggleMobileNavSubj = new Subject<boolean>()
 
-  nearWalletAcctInfo = {
-    name:"michaelodumosu29.testnet",
-    network:Network.testnet
+  nearWalletAcctInfo = new  BaseServiceNearWalletAcctInfo()
+  
+  getNearAndWalletConnection = (login) =>{
+    let { keyStores } = nearAPI;
+    let myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
+    const { connect } = nearAPI;
+
+    const connectionConfig = {
+      networkId: "testnet",
+      keyStore: myKeyStore, // first create a key store 
+      nodeUrl: "https://rpc.testnet.near.org",
+      walletUrl: "https://wallet.testnet.near.org",
+      helperUrl: "https://helper.testnet.near.org",
+      explorerUrl: "https://explorer.testnet.near.org",
+    }
+    return from(connect(connectionConfig))
+    .pipe(
+      tap((nearConnection ) => {
+        
+        let walletConnection = new WalletConnection(
+          nearConnection,
+          this.nearWalletAcctInfo.accountId
+        )
+        this.nearWalletAcctInfo.walletConnection = walletConnection
+        this.nearWalletAcctInfo.accountId = walletConnection.getAccountId()
+        this.waitForContract()
+
+        if(login){
+
+          this.connectWallet()
+        }
+      })
+    )
   }
   
+  nearSignOut=()=>{
+    this.nearWalletAcctInfo.walletConnection.signOut()
+  }
+
+  waitForContract =  ()=>{
+    // @ts-ignore
+    this.nearWalletAcctInfo.nftContract =new Contract(
+      this.nearWalletAcctInfo.walletConnection.account(),
+        this.nearWalletAcctInfo.nftContractName,
+        {
+          // View methods are read only. They don't modify the state, but usually return some value.
+          viewMethods: ["check_token","nft_metadata"],
+          // Change methods can modify the state. But you don't receive the returned value when called.
+          changeMethods: ["nft_mint"],
+        }
+      )
+
+
+  }
+
+
+
+  connectWallet = ()=>{
+    this.nearWalletAcctInfo.walletConnection.requestSignIn(
+      "aurora.fakes.testnet", // contract requesting access
+      "Proof Of Vibes", // optional title
+      "http://localhost:4200", // optional redirect URL on success
+      "http://localhost:4200/failure" // optional redirect URL on failure
+    );
+  }
 
   getWalletInfo = ()=>{
+    
     return this.http.get(
       ENV.generateNFT.getWalletInfo()
     )
@@ -99,4 +165,26 @@ export class BaseService {
   
 
 
+}
+
+
+class BaseServiceNearWalletAcctInfo {
+  constructor(params:Partial<BaseService>={}){
+    Object.assign(
+      this,
+      {
+        ...params
+      }
+    )
+  }
+  
+
+    counter = 0
+    accountId:string
+    network:string
+    walletConnection:WalletConnection |any
+    configInfo:string
+    nftContract:Contract & {nft_mint:Function}
+    nftContractName:"nft-frontend-simple-mint.blockhead.testnet"
+  
 }

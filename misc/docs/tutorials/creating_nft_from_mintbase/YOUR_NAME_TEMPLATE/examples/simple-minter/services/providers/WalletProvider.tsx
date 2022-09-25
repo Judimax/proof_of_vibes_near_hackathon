@@ -98,11 +98,13 @@ export function WalletProvider({
       localStorage.removeItem(nearKeystore);
     }
 
+    
     const { data: walletData, error } = await new Wallet().init({
       networkName: network ?? Network.testnet,
       chain,
       apiKey,
     });
+    console.log(error)
 
     if (error) {
       console.error(error);
