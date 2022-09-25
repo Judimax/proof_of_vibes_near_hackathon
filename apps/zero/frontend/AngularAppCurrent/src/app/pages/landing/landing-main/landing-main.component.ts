@@ -11,7 +11,7 @@ import { from, Subject, timer } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
 // misc
-import { ENV } from '@environment/environment';
+import { ENV } from '@environment/environment.dev';
 
 // wml components
 import { WMLButton, WMLImage } from '@windmillcode/wml-components-base';

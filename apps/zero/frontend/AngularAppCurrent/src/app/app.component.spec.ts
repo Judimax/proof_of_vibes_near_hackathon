@@ -17,7 +17,7 @@ import { of, Subject } from 'rxjs';
 import { SpotifyPlaylistsParams } from '@shared/components/spotify-playlists/spotify-playlists.component';
 import { MobileNavItemParams } from '../../projects/mobile-nav/src/lib/mobile-nav-item/mobile-nav-item.component';
 import { Component, ViewContainerRef } from '@angular/core';
-import { environment as env } from '@environment/environment';
+import { environment as env } from '@environment/environment.dev';
 import { ENV } from '@core/config/configs';
 
 

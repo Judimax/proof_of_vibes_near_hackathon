@@ -6,7 +6,7 @@ import { BaseService } from '@core/base/base.service';
 // misc
 
 import { LinkedList } from '@core/utility/utils';
-import { ENV } from '@environment/environment';
+import { ENV } from '@environment/environment.dev';
 import { WMLButton } from '@windmillcode/wml-components-base';
 
 @Injectable({

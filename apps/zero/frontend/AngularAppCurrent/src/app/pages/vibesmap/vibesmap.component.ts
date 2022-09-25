@@ -11,7 +11,10 @@ import { Subject } from 'rxjs';
 import { takeUntil,tap } from 'rxjs/operators';
 
 // misc
-import { ENV } from '@environment/environment';
+import { ENV } from '@environment/environment.dev';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { WMLForm } from '@shared/wml-components/wml-form/wml-form.component';
+import { WMLButton } from '@windmillcode/wml-components-base';
 
 declare global {
   let mapboxgl:any;
@@ -39,8 +42,14 @@ export class VibesmapComponent  {
   @ViewChild('vibesMap',{static:true,read:ElementRef}) vibesMap
   @ViewChild('smileyFace',{static:true,read:ElementRef}) smileyFace
   map 
-
-  markers 
+  markers
+  EDA= {
+    title:"EDA Event",
+    isPresent:false,
+    closeForm:()=>{
+      this.EDA.isPresent = false
+    }
+  } 
 
   ngOnInit(): void {
     this.map  = new mapboxgl.Map({
@@ -57,7 +66,7 @@ export class VibesmapComponent  {
     .map((nullVal,index0)=>{
       let markerLng = (this.utilService.generateRandomNumber(100) *.01) + -74.5
       let markerLat = (this.utilService.generateRandomNumber(100) *.01) + 40.5
-      console.log(markerLng,markerLat)      
+   
       let img =this.renderer2.createElement("img")
       img.src = "assets/media/shared/smiley_face.webp"
       img.id = "VibesmapPod0Img0"
@@ -65,17 +74,69 @@ export class VibesmapComponent  {
         "width": "calc(16/16 * 1rem)",
         "height": "auto"
       }
-      return new mapboxgl.Marker({
+      let marker = new mapboxgl.Marker({
         element :img
       })
       .setLngLat([markerLng, markerLat])
       .addTo(this.map)
+
+      marker.getElement().addEventListener('click', ($evt) => {
+        this.EDA.isPresent = true
+        this.EDA.title = "Event "+index0
+      });
+      return marker
     })
 
-    console.log(this.markers)
+
 
 
   }
+
+  rootFormGroup = new FormGroup({
+    [ENV.vibesMap.fieldFormControlName.energy]: new FormControl(5,[]),
+    [ENV.vibesMap.fieldFormControlName.density]: new FormControl(5,[]),
+    [ENV.vibesMap.fieldFormControlName.anmity]: new FormControl(5,[]),
+
+  })
+  
+  energyField = this.baseService.generateRangeFormField(
+    "energy",
+    ENV.vibesMap.fieldFormControlName.energy,
+    this.rootFormGroup,
+
+  )
+  densityField = this.baseService.generateRangeFormField(
+    "density",
+    ENV.vibesMap.fieldFormControlName.density,
+    this.rootFormGroup,
+
+  )
+  anmityField = this.baseService.generateRangeFormField(
+    "anmity",
+    ENV.vibesMap.fieldFormControlName.anmity,
+    this.rootFormGroup,
+
+  )
+
+  fields= [
+    this.energyField,
+    this.densityField,
+    this.anmityField,    
+  ]
+  wmlForm = new WMLForm({
+    fields: this.fields
+  })  
+
+  submitBtn = new WMLButton({
+    value:"Submit Your Ratings",
+    click:()=>{
+      alert("Ratings for" + this.EDA.title + " energy "+ this.rootFormGroup.value['energy']
+      + " density "+ this.rootFormGroup.value['density']
+      + " anmity "+ this.rootFormGroup.value['anmity']      
+      )
+      this.EDA.closeForm()
+    }
+  })
 
   ngOnDestroy(){
     this.ngUnsub.next();

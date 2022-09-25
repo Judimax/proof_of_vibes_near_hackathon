@@ -6,11 +6,7 @@
       <button (click)="openMobileNav()" [class]="classPrefix('Pod0Button1')" >Menu</button>
       <h4>{{baseService.nearWalletAcctInfo.accountId}}</h4>
     </div>
-    <ul [class]="classPrefix('Pod0Item1')">
-      <li *ngFor="let link of mainNavItems">
-        <a [routerLink]="link.route">{{link.value}}</a>
-      </li>
-    </ul>
+
   </div>
   <div   [class]="classPrefix('Pod1')"></div>
 </nav>

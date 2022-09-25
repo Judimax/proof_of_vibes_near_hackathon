@@ -14,11 +14,12 @@ import { WmlLabelMeta } from '@shared/wml-components/wml-fields/wml-label/wml-la
 // mintbase
 
 import { HttpClient } from '@angular/common/http';
-import { ENV } from '@environment/environment';
+import { ENV } from '@environment/environment.dev';
 import { Contract, WalletConnection } from 'near-api-js';
 
 // near 
 import * as nearAPI from "near-api-js";
+import { WmlInputMeta } from '@shared/wml-components/wml-input/wml-input.component';
 const { connect, keyStores } = nearAPI;
 
 
@@ -77,7 +78,9 @@ export class BaseService {
           this.nearWalletAcctInfo.accountId
         )
         this.nearWalletAcctInfo.walletConnection = walletConnection
-        this.nearWalletAcctInfo.accountId = walletConnection.getAccountId()
+        
+
+        this.nearWalletAcctInfo.accountId = walletConnection.getAccountId() === '' ? this.nearWalletAcctInfo.accountId : walletConnection.getAccountId()
         this.waitForContract()
 
         if(login){
@@ -126,15 +129,14 @@ export class BaseService {
     )
   }
   
-  
-
-  generateInputFormField=(labelValue:string,fieldFormControlName,fieldParentForm,errorMsgs:WmlLabelMeta["errorMsgs"])=>{
+  generateInputFormField=(labelValue:string,fieldFormControlName,fieldParentForm,errorMsgs:WmlLabelMeta["errorMsgs"],selfType?)=>{
 
     return this.generateFormField(
       new WMLField({
         type: "custom",
         custom: {
-          selfType: "wml-card",
+          
+          selfType: selfType ?? "wml-card",
           fieldParentForm,
           fieldFormControlName,
           labelValue,
@@ -142,6 +144,28 @@ export class BaseService {
         }
       })
     )
+  }
+
+  generateRangeFormField=(labelValue:string,fieldFormControlName,fieldParentForm,errorMsgs?:WmlLabelMeta["errorMsgs"],selfType?)=>{
+    let wmlField
+    wmlField =      new WMLField({
+      type: "custom",
+      custom: {
+        
+        selfType: selfType ?? "standalone",
+        fieldParentForm,
+        fieldFormControlName,
+        labelValue,
+        errorMsgs:errorMsgs??{
+          required:"value is Required"
+        },
+        fieldCustomMeta:new WmlInputMeta({
+          wmlField,
+          type:"range"
+        })
+      }
+    })
+    return this.generateFormField(wmlField)
   }
 
   generateFormField(wmlField:WMLField){

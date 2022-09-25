@@ -13,11 +13,17 @@
       &Main{
         &Pod{
           height:20rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding:0 $spacing7;
+          position: relative;
         }
       }
       &Pod{
         &0{
-          height:100%;
+          height:50%;
+          width: 100%;
           &Img {
             &0 {
               width: calc(16/16 * 1rem);
@@ -25,6 +31,34 @@
             }
           }
         }
+        &1 {
+            width:40%;
+            height: 70%;
+            position: absolute;
+            top: 0;
+            overflow: auto;
+            left: calc(20/16 * 1rem);
+
+            &Item {
+              &0 {
+                display: flex;
+                justify-content: space-between;
+              }
+            }
+
+            &Btn {
+              &0 {
+                @include GlobalButton0;
+                background: $spotify-primary-color;
+                &:hover {
+                  background: $spotify-primary-gradient-color;
+                }
+              }
+            }
+        }
+
+
+        
       }
     }
   }

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnI
 import { ConfigService } from '@app/core/config/config.service';
 import { UtilityService } from '@app/core/utility/utility.service';
 import { Subject } from 'rxjs';
-import { ENV } from '@environment/environment';
+import { ENV } from '@environment/environment.dev';
 
 // i18n
 import { TranslateService } from '@ngx-translate/core';

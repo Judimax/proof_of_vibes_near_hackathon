@@ -10,7 +10,7 @@ import { ENV } from '@core/config/configs';
 import { UtilityService } from '@core/utility/utility.service';
 
 // misc
-import { environment  as env } from '@environment/environment';
+import { environment  as env } from '@environment/environment.dev';
 
 // wml-components
 import { WmlDropdownOptionsMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown-option/wml-dropdown-option.component';

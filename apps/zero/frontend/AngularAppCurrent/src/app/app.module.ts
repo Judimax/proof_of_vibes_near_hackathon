@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 // misc
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
-import { environment as env } from '@environment/environment';
+import { environment as env } from '@environment/environment.dev';
 
 // i18n
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';

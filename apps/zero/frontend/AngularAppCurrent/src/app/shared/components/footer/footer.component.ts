@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
 import { takeUntil,tap } from 'rxjs/operators';
 
 // misc
-import { ENV } from '@environment/environment';
+import { ENV } from '@environment/environment.dev';
 
 @Component({
   selector: 'app-footer',

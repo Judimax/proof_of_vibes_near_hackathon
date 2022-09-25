@@ -25,6 +25,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@windmillcode/wml-components-base": "^0.0.7",
     "@windmillcode/wml-notify": "^0.0.2",
+    "mintbase": "^0.8.1",
     "near-api-js": "^1.0.0",
     "nft.storage": "^7.0.0",
     "ng-qrcode": "^7.0.0",

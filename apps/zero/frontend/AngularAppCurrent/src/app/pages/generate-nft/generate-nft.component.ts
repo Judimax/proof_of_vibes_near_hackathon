@@ -11,7 +11,7 @@ import { from, Subject } from 'rxjs';
 import { delay, takeUntil,tap } from 'rxjs/operators';
 
 // misc
-import { ENV } from '@environment/environment';
+import { ENV } from '@environment/environment.dev';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { WMLField } from '@shared/wml-components/wml-fields/wml-fields.component';
 import { WMLForm } from '@shared/wml-components/wml-form/wml-form.component';
@@ -19,6 +19,7 @@ import { WMLButton } from '@windmillcode/wml-components-base';
 import { WmlDropdownComponent, WmlDropdownMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown.component';
 import { WmlDropdownOptionsMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown-option/wml-dropdown-option.component';
 import { DropdownOptionComponent, DropdownOptionMeta } from '@shared/components/dropdown-option/dropdown-option.component';
+import { Router } from '@angular/router';
 
 
 //minbase
@@ -39,7 +40,8 @@ export class GenerateNFTComponent  {
     private cdref:ChangeDetectorRef,
     private utilService:UtilityService,
     private configService:ConfigService,
-    private baseService:BaseService
+    private baseService:BaseService,
+    private router:Router
   ) { }
   classPrefix = this.utilService.generateClassPrefix('GenerateNFT')  
   @HostBinding('class') myClass: string = this.classPrefix(`View`);
@@ -156,7 +158,6 @@ export class GenerateNFTComponent  {
         console.log(this.baseService.nearWalletAcctInfo)
         
       }),
-      delay(5000),
       tap(()=>{
         this.createNFT()
       })
@@ -170,7 +171,7 @@ export class GenerateNFTComponent  {
   }
 
   createNFT = ()=>{
-
+    console.log(this.baseService.nearWalletAcctInfo.nftContract.nft_mint)
     this.baseService.nearWalletAcctInfo.nftContract
     .nft_mint(
       {
@@ -186,6 +187,7 @@ export class GenerateNFTComponent  {
       300000000000000, // attached GAS (optional)
       new BN("1000000000000000000000000")
     )
+    // this.router.navigateByUrl('/vibesmap')
   }
 
 

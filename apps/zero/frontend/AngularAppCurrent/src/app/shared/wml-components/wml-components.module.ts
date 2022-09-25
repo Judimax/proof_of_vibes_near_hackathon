@@ -11,8 +11,9 @@ import { WmlDropdownModule } from './wml-dropdown/wml-dropdown.module';
 
 
 
+
 @NgModule({
-  declarations: [],
+
   imports: [
     CommonModule
   ],

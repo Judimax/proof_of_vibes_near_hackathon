@@ -11,7 +11,7 @@ import { Subject, timer } from 'rxjs';
 import { takeUntil,tap } from 'rxjs/operators';
 
 // misc
-import { ENV } from '@environment/environment';
+import { ENV } from '@environment/environment.dev';
 import { MobileNavItemParams } from './mobile-nav-item/mobile-nav-item.component';
 
 @Component({

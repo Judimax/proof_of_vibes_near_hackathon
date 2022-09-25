@@ -1,6 +1,13 @@
 <div [class]="classPrefix('MainPod')">
   <div [class]="classPrefix('Pod0')" #vibesMap></div>
-  <img #smileyFace [class]="classPrefix('Pod0Img0')" src="assets/media/shared/smiley_face.webp"/> 
+  <wml-card *ngIf="EDA.isPresent" [class]="classPrefix('Pod1')">
+    <div [class]="classPrefix('Pod1Item0')">
+      <h3>{{EDA.title}}</h3>
+      <img src="assets/media/nav/2.svg" (click)="EDA.closeForm()">
+    </div>
+    <wml-form [fields]="wmlForm.fields"></wml-form>
+    <button [class]="classPrefix('Pod1Btn0')" (click)="submitBtn.click($event)">{{submitBtn.value}}</button>
+  </wml-card>
 </div>
 
 

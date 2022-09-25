@@ -10,8 +10,8 @@ import { NavService } from '@shared/services/nav/nav.service';
 import { BaseService } from '@core/base/base.service';
 
 // misc
-import { environment as env } from "@environment/environment";
-import { ENV } from '@environment/environment';
+import { environment as env } from "@environment/environment.dev";
+import { ENV } from '@environment/environment.dev';
 import { GenerateMobileNavBtnItemParams, UtilityService } from '@core/utility/utility.service';
 
 import { MobileNavParams } from '../../projects/mobile-nav/src/public-api';
@@ -55,6 +55,7 @@ export class AppComponent {
         alt:"global.logoImgAlt",
         style:{
           "width":"50%",
+          "maxWidth":"calc(100/16 * 1rem)",
           "height":"auto"
         }
       })
@@ -68,6 +69,7 @@ export class AppComponent {
       this.baseService.toggleMobileNavSubj.next(false)
     }
   }
+  
   generateNFTMobileNavItem = this.utilService.generateMobileNavLinkItem(
     "Generate Your NFT",
     this.navigateWhenMobileNavItemIsClicked("/generateNFT")
@@ -76,8 +78,6 @@ export class AppComponent {
     "Vibes Map",
     this.navigateWhenMobileNavItemIsClicked("/vibesmap")
     )
-
- 
 
 
   

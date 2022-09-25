@@ -28,10 +28,10 @@ app.register_blueprint(myhealthcheck)
 
 @app.after_request
 def after_request(response):
-  origin =  request.headers.get('Origin',"") 
+  origin =  request.headers.get('Origin',"*") 
   
 
-  response.headers.add('Access-Control-Allow-Origin', '*')  
+  response.headers.add('Access-Control-Allow-Origin', origin)  
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,PATCH') 
   response.headers.add('Access-Control-Allow-Credentials','true')
   response.headers.add('Allow-Origin-With-Credentials','true') 
